@@ -140,12 +140,12 @@ total_arte%>%
 
 # Alternativa B - Verdadeira
 
-total_arte%>%
-  count(artist_nationality)%>%
+nacionalidades <- total_arte%>%
   filter(artist_nationality == "Swiss"|
            artist_nationality == "Mexican"|
            artist_nationality == "Japanese")%>%
-  summarise(total_3_nacionalidades = sum(n))
+  group_by(artist_name)
+
 
 # Alternativa C - Falsa 
 
